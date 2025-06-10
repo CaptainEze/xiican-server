@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create PIN</title>
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/auth.css" />
+    </head>
+    <body>
+        <div class="full-height">
+            <div class="auth-container">
+                <div class="card login-box">
+                    <div class="auth-header">
+                        <p class="card-subtitle">Create Pin (6 digits)</p>
+                    </div>
+                    <form
+                        class="login-form"
+                        id="loginForm"
+                        action="/setup"
+                        method="post"
+                    >
+                        <div class="form-group">
+                            <label class="form-label" for="pin"
+                                >PIN</label
+                            >
+                            <input
+                                type="password"
+                                id="pin"
+                                name="pin"
+                                class="form-input form-input-enhanced"
+                                placeholder="Set pin"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="pin"
+                                >CONFIRM PIN</label
+                            >
+                            <input
+                                type="password"
+                                id="pin"
+                                name="cpin"
+                                class="form-input form-input-enhanced"
+                                placeholder="Retype pin"
+                                required
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-full login-btn"
+                        >
+                            Create Access
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% if(error) {%>
+        <script>
+            alert("<%=error%>");
+        </script>
+        <% } %>
+    </body>
+</html>

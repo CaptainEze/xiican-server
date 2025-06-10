@@ -16,7 +16,12 @@
                         <p class="card-subtitle">Secure Access</p>
                     </div>
 
-                    <form class="login-form" id="loginForm" action="/cnc/ys" method="post">
+                    <form
+                        class="login-form"
+                        id="loginForm"
+                        action="/cnc/ys"
+                        method="post"
+                    >
                         <div class="form-group">
                             <label class="form-label" for="username"
                                 >Username</label
@@ -83,10 +88,10 @@
                 </div>
             </div>
         </div>
+        <% if(error) {%>
         <script>
-            <% if(error) {%>
-                alert("<%=error%>");
-            <% } %>
+            alert("<%=error%>");
         </script>
+        <% } %>
     </body>
 </html>

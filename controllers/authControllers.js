@@ -34,7 +34,6 @@ export const register = async (req, res) => {
         return res.render("register", {error});
     }
 
-    
 }
 
 export const login = async (req, res) => {
@@ -60,9 +59,9 @@ export const login = async (req, res) => {
         },"2hr");
 
         res.cookie("auth", token, { httpOnly: true });
-        // if (!user.pin) res.redirect("/setup");
-        
-        res.redirect("/dashboard");
+
+        if (!user.pin) return res.redirect("/setup");
+        return res.redirect("/dashboard");
     } catch (error) {
         return res.render("login", {error});
     }

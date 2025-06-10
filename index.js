@@ -8,7 +8,7 @@ import tokenJson from './artifacts/contracts/Token.sol/Token.json' with { type: 
 import { login, loginScreen, register, registerScreen } from "./controllers/authControllers.js";
 import dbConn from "./db/conn.js";
 import { AuthMiddleware } from "./middlewares/authMiddleware.js";
-import { dashboard } from "./controllers/appControllers.js";
+import { dashboard, setup, setupPost } from "./controllers/appControllers.js";
 
 
 const app = express();
@@ -26,6 +26,13 @@ app.get("/cnc/ys", registerScreen);
 app.post("/", login);
 app.post("/cnc/ys", register);
 
+
+// setup route
+app.get("/setup", AuthMiddleware, setup);
+app.post("/setup", AuthMiddleware, setupPost);
+
+
+// dashboard route
 
 app.get("/dashboard",AuthMiddleware, dashboard);
 

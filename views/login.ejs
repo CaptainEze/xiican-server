@@ -121,9 +121,11 @@
                     }
                 });
             });
-            <% if(error) {%>
-                alert("<%=error%>");
-            <% } %>
         </script>
+        <% if(error) { %>
+        <script>
+            alert("<%= error %>");
+        </script>
+        <% } %>
     </body>
 </html>
