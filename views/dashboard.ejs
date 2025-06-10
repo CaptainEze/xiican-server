@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <h1>Welcome to Token Dashboard</h1>
+        <form method="POST" action="/deploy">
+            <h3>Deploy New Token</h3>
+            <input type="text" name="name" placeholder="Token Name" required />
+            <input
+                type="text"
+                name="symbol"
+                placeholder="Token Symbol"
+                required
+            />
+            <input
+                type="number"
+                name="decimals"
+                placeholder="Decimals (e.g. 18)"
+                required
+            />
+            <button type="submit">Deploy</button>
+        </form>
+
+        <form method="POST" action="/send">
+            <h3>Send Token</h3>
+            <input
+                type="text"
+                name="contractAddress"
+                placeholder="Token Contract Address"
+                required
+            />
+            <input
+                type="text"
+                name="to"
+                placeholder="Recipient Wallet Address"
+                required
+            />
+            <input type="number" name="amount" placeholder="Amount" required />
+            <button type="submit">Send</button>
+        </form>
+
+        <form method="GET" action="/logout">
+            <button type="submit">Logout</button>
+        </form>
+
+        
+        
+    </body>
+</html>

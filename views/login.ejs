@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Request Access</title>
+        <link rel="stylesheet" href="/css/index.css" />
+        <link rel="stylesheet" href="/css/auth.css" />
+    </head>
+    <body>
+        <div class="full-height">
+            <div class="auth-container">
+                <div class="card login-box">
+                    <div class="auth-header">
+                        <div class="auth-logo">⬢</div>
+                        <p class="card-subtitle">Secure Access</p>
+                    </div>
+
+                    <form class="login-form" id="loginForm" action="/" method="post">
+                        <div class="form-group">
+                            <label class="form-label" for="username"
+                                >Username</label
+                            >
+                            <input
+                                type="text"
+                                id="username"
+                                name="userName"
+                                class="form-input form-input-enhanced"
+                                placeholder="Enter your username"
+                                autocomplete="username"
+                                required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="password"
+                                >Password</label
+                            >
+                            <div
+                                class="password-group"
+                                style="position: relative"
+                            >
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-input form-input-enhanced"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    style="padding-right: 50px"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="passwordToggle"
+                                    onmousedown="showPassword()"
+                                    onmouseup="hidePassword()"
+                                    onmouseleave="hidePassword()"
+                                    ontouchstart="showPassword()"
+                                    ontouchend="hidePassword()"
+                                >
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-full login-btn"
+                            id="loginButton"
+                        >
+                            Enter
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Get form elements
+            const usernameInput = document.getElementById("username");
+            const passwordInput = document.getElementById("password");
+            const loginButton = document.getElementById("loginButton");
+            const loginForm = document.getElementById("loginForm");
+
+
+
+            // Password toggle functions
+            function showPassword() {
+                passwordInput.type = "text";
+                document.getElementById("passwordToggle").style.color =
+                    "var(--primary-cyan)";
+            }
+
+            function hidePassword() {
+                passwordInput.type = "password";
+                document.getElementById("passwordToggle").style.color =
+                    "var(--text-muted)";
+            }
+
+           
+
+            // Add some visual feedback for form interactions
+            [usernameInput, passwordInput].forEach((input) => {
+                input.addEventListener("focus", function () {
+                    this.parentElement.style.transform = "scale(1.02)";
+                    this.parentElement.style.transition = "transform 0.3s ease";
+                });
+
+                input.addEventListener("blur", function () {
+                    this.parentElement.style.transform = "scale(1)";
+                });
+            });
+
+            // Prevent form submission on Enter if button is disabled
+            [usernameInput, passwordInput].forEach((input) => {
+                input.addEventListener("keypress", function (e) {
+                    if (e.key === "Enter" && loginButton.disabled) {
+                        e.preventDefault();
+                    }
+                });
+            });
+            <% if(error) {%>
+                alert("<%=error%>");
+            <% } %>
+        </script>
+    </body>
+</html>

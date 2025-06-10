@@ -1,0 +1,11 @@
+<form action="/send" method="post">
+    <input type="hidden" name="pin" value="123456" />
+    <input
+        name="contractAddress"
+        placeholder="Token Contract Address"
+        required
+    /><br />
+    <input name="to" placeholder="Recipient Wallet Address" required /><br />
+    <input name="amount" placeholder="Amount to Send" required /><br />
+    <button type="submit">Send</button>
+</form>
